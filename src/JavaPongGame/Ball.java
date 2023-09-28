@@ -1,15 +1,16 @@
 package JavaPongGame;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
-import javax.swing.*;
+
 public class Ball extends Rectangle{
+
     Random random;
     int xVelocity;
     int yVelocity;
-    int initialSpeed = 1;
-    public Ball(int x, int y, int width, int height) {
+    int initialSpeed = 2;
+
+    Ball(int x, int y, int width, int height){
         super(x,y,width,height);
         random = new Random();
         int randomXDirection = random.nextInt(2);
@@ -21,19 +22,21 @@ public class Ball extends Rectangle{
         if(randomYDirection == 0)
             randomYDirection--;
         setYDirection(randomYDirection*initialSpeed);
+
     }
-    public void setXDirection(int randomXDirection){
+
+    public void setXDirection(int randomXDirection) {
         xVelocity = randomXDirection;
     }
-    public void setYDirection(int randomYDirection){
+    public void setYDirection(int randomYDirection) {
         yVelocity = randomYDirection;
     }
-    public void move(){
+    public void move() {
         x += xVelocity;
-        y =+ yVelocity;
+        y += yVelocity;
     }
-    public void draw(Graphics g){
+    public void draw(Graphics g) {
         g.setColor(Color.white);
-        g.fillOval(x,y,height,width);
+        g.fillOval(x, y, height, width);
     }
 }
